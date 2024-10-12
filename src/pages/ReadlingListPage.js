@@ -1,28 +1,35 @@
 import { useContext } from "react";
 import { ReadingListContext } from "../store/ReadingListContext";
+import { Link } from "react-router-dom";
 import BookCard from "../components/BookCard";
+
 import './ReadingList.css';
+
 const ReadingListPage = () => {
-    const { readingList, setReadStatus, removeFromReadingList } = useContext(ReadingListContext);
+    const { readingList, setReadingStatus, removeFromReadingList } = useContext(ReadingListContext);
 
     return (
-        <div>
+        <>
             <h2>Reading List</h2>
-            <div className="book-container">
+            <section className="book-container">
                 {readingList.map((book) => (
-                    <BookCard key={book.isbn} book={book}>
-                        <div className="button-container">
-                            <button onClick={() => setReadStatus(book.isbn, !book.read)}>
-                                {book.read ? 'Mark Unread' : 'Mark Read'}
-                            </button>
-                            <button onClick={() => removeFromReadingList(book)}>
-                                Remove
-                            </button>
-                        </div>
-                    </BookCard>
+                    <Link key={book.isbn} to={`/book/${book.isbn}`}>
+                        <BookCard key={book.isbn} book={book}>
+                            <div className="button-container">
+                                <button onClick={(e) => {e.preventDefault(); setReadingStatus(book, true);}}>
+                                    {book.read ? 'Mark Unread' : 'Mark Read'}
+                                </button>
+                                <button onClick={(e) => {e.preventDefault(); removeFromReadingList(book); alert('Removed from reading list');}}>
+                                    Remove
+                                </button>
+                            </div>
+                        </BookCard>
+                    </Link>
                 ))}
-            </div>
-        </div>
+            </section>
+
+            <Link to='/newBook'>Add Book to Reading List</Link>
+        </>
     );
 };
 
