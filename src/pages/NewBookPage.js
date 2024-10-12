@@ -1,10 +1,21 @@
-import React from "react";
+import { useState, useContext } from "react";
+import { ReadingListContext } from "../store/ReadingListContext";
+import BookCard from "../components/BookCard";
+import { Link } from "react-router-dom";
 
 const NewBookPage = () => {
+    // grab the book from the reading list 
+    const { readingListBooks } = useContext(ReadingListContext);
+
+    // we need a way to filter the books
     return (
-        <div>
-            This is the new book page.
-        </div>
+        <>
+            <h2>Reading List</h2>
+            <section>
+                <BookCard>
+                </BookCard>
+            </section>
+        </>
     );
 };
 

@@ -12,7 +12,7 @@ const HomePage = () => {
         if (filter === 'all') return true;
         if (filter === 'best' && book.bestSeller) return true;
         if (filter === 'new' && book.newRelease) return true;
-        return false; 
+        return false;
     });
 
     return (
@@ -22,7 +22,7 @@ const HomePage = () => {
             <section>
                 <label>
                     All
-                    <input 
+                    <input
                         type="radio"
                         name="filter"
                         value="all"
@@ -31,7 +31,7 @@ const HomePage = () => {
                     />
                 </label> | <label>
                     Best Sellers
-                    <input 
+                    <input
                         type="radio"
                         name="filter"
                         value="best"
@@ -40,7 +40,7 @@ const HomePage = () => {
                     />
                 </label> | <label>
                     New Releases
-                    <input 
+                    <input
                         type="radio"
                         name="filter"
                         value="new"
