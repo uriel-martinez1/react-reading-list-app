@@ -1,0 +1,25 @@
+.new-page-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.new-page-form input, .new-page-form button {
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.new-page-form button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.new-page-form button:hover {
+    background-color: #45a049;
+}

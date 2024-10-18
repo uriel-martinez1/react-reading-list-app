@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ReadingListContext } from "../store/ReadingListContext";
+import './NewBookPage.css';
 
 const NewBookPage = () => {
     // we need to store the new book
@@ -20,7 +21,7 @@ const NewBookPage = () => {
     // we need a way to filter the books
     return (
         <>
-            <form>
+            <form className="new-page-form">
                 <input 
                     type="text"
                     name="title"
